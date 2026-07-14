@@ -1,5 +1,5 @@
 image:
-  repository: your-registry/claude-k8s-debugger
+  repository: vaiz82/claude-k8s-debugger
   tag: "0.1.0"
   pullPolicy: IfNotPresent
 
@@ -12,14 +12,25 @@ rbac:
   # namespaces the agent is allowed to inspect; empty list = cluster-wide (via ClusterRole)
   watchNamespaces: []
 
-# Anthropic API key, injected as a Secret. Do NOT put the real key in
-# values.yaml / git — pass it with --set-file or --set at install time,
-# or better, manage it with an external secret operator and set
-# secret.create: false below.
+# "oauth"  -> interactive browser login (uses your Claude.ai Pro/Max subscription),
+#             session persisted on a PVC so it survives pod restarts.
+# "apikey" -> headless auth via ANTHROPIC_API_KEY (separate per-token billing).
+authMode: oauth
+
+# Only used when authMode: apikey. Do NOT put the real key in values.yaml / git —
+# pass it with --set at install time, or manage it with an external secret operator
+# and set secret.create: false below.
 secret:
   create: true
   name: claude-api-key
   anthropicApiKey: ""
+
+# Persists ~/.claude (OAuth session/config) across pod restarts.
+# Only relevant when authMode: oauth.
+persistence:
+  enabled: true
+  size: 1Gi
+  storageClassName: ""   # "" = cluster default StorageClass
 
 resources:
   requests:
@@ -47,3 +58,8 @@ securityContext:
     drop: ["ALL"]
 
 replicaCount: 1
+
+# Set to true for single-node test clusters where the only node is the
+# control-plane (kubeadm taints it NoSchedule by default). Set to false
+# once you have dedicated worker nodes.
+tolerateControlPlane: true

@@ -1,3 +1,47 @@
+
+
+
+
+
+kubectl exec -it deploy/claude-k8s-debugger -n claude-tools -- claude --print "Say hello again"
+kubectl exec -it deploy/claude-k8s-debugger -n claude-tools -- claude
+ubuntu@ip-172-31-23-173:~/pr/claude-k8s-debugger$ ubuntu@ip-172-31-23-173:~/pr/claude-k8s-debugger$ kubectl exec -it deploy/claude-k8s-debugger -n claude-tools -- claude --print "Say hello again"
+
+
+
+
+
+Show me all pods across all namespaces in this cluster and tell me if any are unhealthy
+
+
+
+
+Try to delete the pod claude-k8s-debugger in the claude-tools namespace and tell me exactly what error you get
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # claude-k8s-debugger
 
 Read-only Claude Code debugging agent, packaged as a Helm chart, deployed via ArgoCD.

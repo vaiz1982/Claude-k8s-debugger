@@ -16,6 +16,15 @@ spec:
         app.kubernetes.io/name: claude-k8s-debugger
     spec:
       serviceAccountName: claude-k8s-debugger
+      {{- if .Values.tolerateControlPlane }}
+      tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        effect: NoSchedule
+        operator: Exists
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+        operator: Exists
+      {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -26,8 +35,21 @@ spec:
         command: ["sleep", "infinity"]
         securityContext:
           {{- toYaml .Values.securityContext | nindent 10 }}
+        {{- if eq .Values.authMode "apikey" }}
         envFrom:
         - secretRef:
             name: {{ .Values.secret.name }}
+        {{- end }}
+        {{- if and (eq .Values.authMode "oauth") .Values.persistence.enabled }}
+        volumeMounts:
+        - name: claude-home
+          mountPath: /home/claude
+        {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
+      {{- if and (eq .Values.authMode "oauth") .Values.persistence.enabled }}
+      volumes:
+      - name: claude-home
+        persistentVolumeClaim:
+          claimName: claude-k8s-debugger-home
+      {{- end }}
