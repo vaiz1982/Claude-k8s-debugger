@@ -1,0 +1,9 @@
+*.key
+*secret*.yaml
+!chart/templates/secret.yaml
+.env
+*.pem
+values-local.yaml
+values-*.local.yaml
+.DS_Store
+*.swp

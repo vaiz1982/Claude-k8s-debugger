@@ -1,0 +1,49 @@
+image:
+  repository: your-registry/claude-k8s-debugger
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+namespace: claude-tools
+
+# Scope of the ClusterRole. Keep this read-only unless you deliberately
+# want the agent to be able to change cluster state.
+rbac:
+  readOnly: true
+  # namespaces the agent is allowed to inspect; empty list = cluster-wide (via ClusterRole)
+  watchNamespaces: []
+
+# Anthropic API key, injected as a Secret. Do NOT put the real key in
+# values.yaml / git — pass it with --set-file or --set at install time,
+# or better, manage it with an external secret operator and set
+# secret.create: false below.
+secret:
+  create: true
+  name: claude-api-key
+  anthropicApiKey: ""
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: "1"
+    memory: 512Mi
+
+networkPolicy:
+  enabled: true
+  # Claude Code needs to reach the Anthropic API
+  allowedEgressCIDRs:
+    - 0.0.0.0/0   # tighten to Anthropic's published IP ranges if you need strict egress control
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+  fsGroup: 10001
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: false
+  capabilities:
+    drop: ["ALL"]
+
+replicaCount: 1

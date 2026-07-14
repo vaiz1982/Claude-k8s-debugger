@@ -1,0 +1,33 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: claude-k8s-debugger
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: claude-k8s-debugger
+  policyTypes:
+  - Egress
+  - Ingress
+  ingress: []  # nothing needs to initiate connections to this pod
+  egress:
+  # DNS
+  - to:
+    - namespaceSelector: {}
+    ports:
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 53
+  # Kubernetes API server + Anthropic API
+  - to:
+    {{- range .Values.networkPolicy.allowedEgressCIDRs }}
+    - ipBlock:
+        cidr: {{ . }}
+    {{- end }}
+    ports:
+    - protocol: TCP
+      port: 443
+{{- end }}

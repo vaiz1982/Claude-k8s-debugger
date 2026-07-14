@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: claude-k8s-debugger
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/<your-org>/<your-repo>.git
+    targetRevision: main
+    path: chart
+    helm:
+      valueFiles:
+        - values.yaml
+      # Prefer this over committing the real key to git:
+      # parameters:
+      #   - name: secret.anthropicApiKey
+      #     value: "$ANTHROPIC_API_KEY"
+      #     forceString: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: claude-tools
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: 3
+      backoff:
+        duration: 10s
+        factor: 2
+        maxDuration: 3m
