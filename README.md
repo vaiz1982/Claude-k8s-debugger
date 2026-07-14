@@ -314,3 +314,73 @@ point at wherever you push this chart.
 
 
 <img width="708" height="704" alt="Screenshot 2026-07-14 at 02 05 32" src="https://github.com/user-attachments/assets/6577305e-26e1-4edc-854c-eaddd7d9cffd" />
+
+
+
+
+
+
+
+<img width="1450" height="597" alt="Screenshot 2026-07-14 at 02 25 22" src="https://github.com/user-attachments/assets/a4e3015e-b31c-469b-883a-7d4f803c4e1c" />
+
+
+
+
+
+
+
+
+<img width="1294" height="594" alt="Screenshot 2026-07-14 at 02 25 42" src="https://github.com/user-attachments/assets/db087a4a-4a99-4798-9395-b53d74b99f0b" />
+
+
+
+
+
+
+
+
+<img width="1069" height="600" alt="Screenshot 2026-07-14 at 02 25 51" src="https://github.com/user-attachments/assets/a440b74b-85d4-4cb8-9cda-3aff05991549" />
+
+
+
+
+
+
+
+
+<img width="1460" height="592" alt="Screenshot 2026-07-14 at 02 29 35" src="https://github.com/user-attachments/assets/6200921f-65a1-42db-a7a3-78f4a55e160f" />
+
+
+
+
+
+
+
+
+<img width="1437" height="589" alt="Screenshot 2026-07-14 at 02 32 26" src="https://github.com/user-attachments/assets/1105ca7e-45c4-4080-a90a-e92b7c49f176" />
+
+
+
+
+
+
+
+
+<img width="1460" height="588" alt="Screenshot 2026-07-14 at 02 33 45" src="https://github.com/user-attachments/assets/ff78c9b6-6169-4985-b99f-c71826b73417" />
+
+
+
+
+
+
+
+
+<img width="1163" height="570" alt="Screenshot 2026-07-14 at 02 46 26" src="https://github.com/user-attachments/assets/4a932737-fdec-4db9-a4ef-0cb0c9842bbe" />
+
+
+
+
+
+
+
+<img width="710" height="785" alt="Screenshot 2026-07-14 at 02 46 36" src="https://github.com/user-attachments/assets/30ba9034-b512-4ba4-a67a-ea9076bc0a5e" />
