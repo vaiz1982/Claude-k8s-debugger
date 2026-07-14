@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: claude-k8s-debugger
+  name: claude-k8s-debugger-argocd-test
   namespace: argocd
 spec:
   project: default
@@ -11,10 +11,10 @@ spec:
     path: chart
     helm:
       valueFiles:
-        - values.yaml
+        - values-argocd-test.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: claude-tools
+    namespace: claude-tools-argocd
   syncPolicy:
     automated:
       prune: true
@@ -27,4 +27,3 @@ spec:
         duration: 10s
         factor: 2
         maxDuration: 3m
-

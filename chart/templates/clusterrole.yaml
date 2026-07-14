@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: claude-k8s-debugger
+  name: claude-k8s-debugger-{{ .Values.namespace }}
 rules:
 - apiGroups: [""]
   resources: ["pods", "pods/log", "events", "services", "endpoints", "configmaps", "namespaces", "nodes"]
@@ -27,12 +27,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: claude-k8s-debugger
+  name: claude-k8s-debugger-{{ .Values.namespace }}
 subjects:
 - kind: ServiceAccount
   name: claude-k8s-debugger
   namespace: {{ .Values.namespace }}
 roleRef:
   kind: ClusterRole
-  name: claude-k8s-debugger
+  name: claude-k8s-debugger-{{ .Values.namespace }}
   apiGroup: rbac.authorization.k8s.io

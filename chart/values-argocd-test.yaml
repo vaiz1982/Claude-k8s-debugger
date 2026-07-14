@@ -1,0 +1,53 @@
+# Test deployment managed by ArgoCD, isolated from the manually-installed
+# `helm install claude-k8s-debugger` release. Everything here lives in its
+# own namespace so it can't collide with the working pod.
+
+image:
+  repository: vaiz82/claude-k8s-debugger
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+namespace: claude-tools-argocd
+
+rbac:
+  readOnly: true
+  watchNamespaces: []
+
+authMode: oauth
+
+secret:
+  create: true
+  name: claude-api-key
+  anthropicApiKey: ""
+
+persistence:
+  enabled: true
+  size: 1Gi
+  storageClassName: ""
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: "1"
+    memory: 512Mi
+
+networkPolicy:
+  enabled: true
+  allowedEgressCIDRs:
+    - 0.0.0.0/0
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+  fsGroup: 10001
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: false
+  capabilities:
+    drop: ["ALL"]
+
+replicaCount: 1
+tolerateControlPlane: true
