@@ -1,3 +1,44 @@
+<img width="1278" height="942" alt="Screenshot 2026-07-14 at 03 16 22" src="https://github.com/user-attachments/assets/a959c3f7-8021-45a0-a7a2-954c4ae23172" />
+
+
+
+
+
+<img width="1283" height="742" alt="Screenshot 2026-07-14 at 03 16 29" src="https://github.com/user-attachments/assets/8d993594-3dca-4b84-a7c4-4437441481bf" />
+
+
+
+
+
+
+<img width="1293" height="764" alt="Screenshot 2026-07-14 at 03 16 37" src="https://github.com/user-attachments/assets/82006f11-dcfb-483e-8bd4-7cdceb119476" />
+
+
+
+
+
+
+<img width="1263" height="540" alt="Screenshot 2026-07-14 at 03 16 45" src="https://github.com/user-attachments/assets/3b2746f0-f3df-4b02-a2ac-97c46820bb19" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 kubectl exec -it deploy/claude-k8s-debugger -n claude-tools -- claude
 
