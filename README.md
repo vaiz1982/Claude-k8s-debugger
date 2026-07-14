@@ -1,3 +1,51 @@
+
+kubectl exec -it deploy/claude-k8s-debugger -n claude-tools -- claude
+
+
+
+
+
+<img width="738" height="415" alt="Screenshot 2026-07-14 at 02 56 24" src="https://github.com/user-attachments/assets/50be8d66-fbb1-426f-aee8-911009668d5e" />
+
+
+
+
+
+
+
+inside the pod Claud AI created! 
+kubectl exec -it deploy/claude-k8s-debugger -n claude-tools -- ls -la /workspace
+
+
+
+
+download file from it
+kubectl cp claude-tools/$(kubectl get pod -n claude-tools -l app.kubernetes.io/name=claude-k8s-debugger -o jsonpath='{.items[0].metadata.name}'):/workspace/README.md ./README-from-pod.md
+
+
+
+
+
+
+read from terminal
+kubectl exec deploy/claude-k8s-debugger -n claude-tools -- cat /workspace/README.md
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 next time add mcp server! 
 
 <img width="651" height="405" alt="Screenshot 2026-07-14 at 02 10 43" src="https://github.com/user-attachments/assets/88dcd274-35cf-46e8-8f5e-c5ade4b2fde2" />
