@@ -1,3 +1,11 @@
+next time add mcp server! 
+
+<img width="651" height="405" alt="Screenshot 2026-07-14 at 02 10 43" src="https://github.com/user-attachments/assets/88dcd274-35cf-46e8-8f5e-c5ade4b2fde2" />
+
+next time also if i give command to safe some on READMe.md 
+
+<img width="737" height="673" alt="Screenshot 2026-07-14 at 02 12 07" src="https://github.com/user-attachments/assets/faf79ae0-3329-439d-926d-f916b1b300e3" />
+
 
 
 
