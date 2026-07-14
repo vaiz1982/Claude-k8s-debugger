@@ -1,3 +1,52 @@
+Project purpose
+
+Build a safe, reusable way to let Claude help debug a Kubernetes cluster — not by pasting logs into a chat window, but by giving it live, read-only access to the cluster itself, so it can investigate problems the way an engineer would: run kubectl, read events, correlate causes, and explain what’s actually wrong.
+
+The core constraint driving every design decision: Claude should be able to see everything relevant, but change nothing, unless a human explicitly decides otherwise.
+
+What we built
+
+Packaging
+
+	•	A minimal Docker image (Node 22 + kubectl + Claude Code CLI, non-root user)
+	•	A Helm chart wrapping the whole thing: ServiceAccount, RBAC, NetworkPolicy, Deployment, Secret/PVC for auth
+	•	An ArgoCD setup so the deployment can be managed via GitOps instead of manual helm upgrade
+
+Security model
+
+	•	A dedicated ServiceAccount with a read-only ClusterRole (get/list/watch only) — no create, patch, or delete permissions on cluster resources
+	•	NetworkPolicy blocking all inbound traffic to the pod and restricting outbound to DNS + HTTPS only
+	•	Non-root container, dropped Linux capabilities
+
+Authentication
+
+	•	Started with an API-key approach, switched to OAuth (using your actual Claude subscription) once you decided that was the right fit
+	•	Added a PersistentVolumeClaim so the OAuth session survives pod restarts instead of requiring a fresh browser login every time
+
+What we proved, end to end
+
+	1.	The full chain works: pod → ServiceAccount → RBAC → kubectl → Claude → analysis
+	2.	Real diagnosis, unprompted: given a deliberately broken pod (nginx:99.99-nonexistent), Claude investigated on its own, found the exact ImagePullBackOff cause, and proposed a fix
+	3.	RBAC is actually enforced, not just declared: when Claude tried to apply that fix, the Kubernetes API itself rejected it as read-only — confirming the safety boundary is real, not just Claude being polite
+	4.	It found things we didn’t ask about: while debugging an unrelated ArgoCD sync issue, it independently noticed argocd-applicationset-controller was crash-looping and flagged it
+	5.	GitOps works too: a second, isolated deployment via ArgoCD synced correctly from GitHub into a separate namespace without touching the manually-managed production pod
+
+Where it stands now
+
+A working, version-controlled, reproducible debug agent — pushed to GitHub, deployable with one helm install, provably unable to modify anything it isn’t supposed to. Two things intentionally left for later: making Claude’s scratch files in /workspace persistent, and swapping raw kubectl-via-bash for a structured MCP Kubernetes server for tighter auditability.
+
+
+
+
+
+
+
+
+
+
+
+
+
 <img width="1278" height="942" alt="Screenshot 2026-07-14 at 03 16 22" src="https://github.com/user-attachments/assets/a959c3f7-8021-45a0-a7a2-954c4ae23172" />
 
 
