@@ -114,3 +114,203 @@ point at wherever you push this chart.
   if your org requires strict egress allowlisting.
 - Turn on Kubernetes audit logging for the `claude-k8s-debugger` ServiceAccount
   so every `kubectl` call the agent makes is recorded.
+
+
+
+
+
+
+
+<img width="711" height="802" alt="Screenshot 2026-07-14 at 01 08 09" src="https://github.com/user-attachments/assets/a53eb414-9fb4-43e3-8b29-6e2ad2fd6106" />
+
+
+
+
+
+
+<img width="1472" height="721" alt="Screenshot 2026-07-14 at 01 15 32" src="https://github.com/user-attachments/assets/7f8c262d-8715-45b2-86a3-f85d6d98ec97" />
+
+
+
+
+
+
+<img width="977" height="615" alt="Screenshot 2026-07-14 at 01 16 12" src="https://github.com/user-attachments/assets/bdef762e-7624-4790-b277-51797d3539dd" />
+
+
+
+
+
+
+<img width="1454" height="592" alt="Screenshot 2026-07-14 at 01 16 33" src="https://github.com/user-attachments/assets/ef5fd6e2-dbb5-41bb-8d14-f12025b375e1" />
+
+
+
+
+
+
+
+
+<img width="1423" height="578" alt="Screenshot 2026-07-14 at 01 17 03" src="https://github.com/user-attachments/assets/4b6ef3bb-0de7-45e9-b15e-b4d856eb0335" />
+
+
+
+
+
+
+
+<img width="714" height="790" alt="Screenshot 2026-07-14 at 01 17 24" src="https://github.com/user-attachments/assets/33402e4d-3e7b-4ae5-9692-5c2cf5f8b6c8" />
+
+
+
+
+
+
+
+<img width="703" height="350" alt="Screenshot 2026-07-14 at 01 17 35" src="https://github.com/user-attachments/assets/d05679a7-9a79-4185-8815-36fc88ff4c21" />
+
+
+
+
+
+
+
+<img width="1464" height="378" alt="Screenshot 2026-07-14 at 01 17 51" src="https://github.com/user-attachments/assets/7b3e710a-e952-45d9-b017-0ec64513b41b" />
+
+
+
+
+
+
+
+<img width="1480" height="398" alt="Screenshot 2026-07-14 at 01 17 58" src="https://github.com/user-attachments/assets/62645a86-c208-4fa2-be00-1180b51bdd3e" />
+
+
+
+
+
+
+
+<img width="1106" height="602" alt="Screenshot 2026-07-14 at 01 18 25" src="https://github.com/user-attachments/assets/e70e3863-c7bf-4ba5-8dd1-eb190758b33c" />
+
+
+
+
+
+
+<img width="1202" height="594" alt="Screenshot 2026-07-14 at 01 18 38" src="https://github.com/user-attachments/assets/725a480e-bf36-471d-b02c-2f91a58b8c8a" />
+
+
+
+
+
+
+
+
+<img width="866" height="594" alt="Screenshot 2026-07-14 at 01 18 51" src="https://github.com/user-attachments/assets/21c62696-e589-4385-8aa9-23192a13e98a" />
+
+
+
+
+
+
+
+
+<img width="1471" height="582" alt="Screenshot 2026-07-14 at 01 19 24" src="https://github.com/user-attachments/assets/13e12df4-c72b-4147-b4bf-19c8e496596f" />
+
+
+
+
+
+
+
+
+<img width="662" height="549" alt="Screenshot 2026-07-14 at 01 20 38" src="https://github.com/user-attachments/assets/7615aee7-aa99-4699-b082-35ca166b485e" />
+
+
+
+
+
+
+
+
+<img width="1306" height="585" alt="Screenshot 2026-07-14 at 01 21 01" src="https://github.com/user-attachments/assets/60a45de9-b0b3-4735-801c-52d5447d3cbe" />
+
+
+
+
+
+
+
+
+<img width="1463" height="592" alt="Screenshot 2026-07-14 at 01 21 56" src="https://github.com/user-attachments/assets/d3c569ad-a567-4ee3-8cf5-18df4d110aa0" />
+
+
+
+
+
+
+
+
+<img width="658" height="549" alt="Screenshot 2026-07-14 at 01 23 30" src="https://github.com/user-attachments/assets/b9923bb3-2609-4717-9d14-02e5cf905857" />
+
+
+
+
+
+
+
+
+
+<img width="728" height="121" alt="Screenshot 2026-07-14 at 01 24 58" src="https://github.com/user-attachments/assets/aa0ff059-ecf9-4914-9bbc-e3d62f38faaa" />
+
+
+
+
+
+
+
+
+
+<img width="642" height="451" alt="Screenshot 2026-07-14 at 01 30 10" src="https://github.com/user-attachments/assets/3b700952-ee84-476b-ac28-23efc06623a5" />
+
+
+
+
+
+
+
+
+
+
+<img width="739" height="174" alt="Screenshot 2026-07-14 at 01 58 14" src="https://github.com/user-attachments/assets/5002331f-a854-419d-983c-fac376bfc784" />
+
+
+
+
+
+
+
+
+
+<img width="661" height="660" alt="Screenshot 2026-07-14 at 02 01 21" src="https://github.com/user-attachments/assets/b9080b25-3a6c-4efb-8f57-fd210064b9b4" />
+
+
+
+
+
+
+
+
+
+<img width="1453" height="582" alt="Screenshot 2026-07-14 at 02 03 59" src="https://github.com/user-attachments/assets/1009b78e-78f2-4081-acef-e362529adfca" />
+
+
+
+
+
+
+
+
+
+<img width="708" height="704" alt="Screenshot 2026-07-14 at 02 05 32" src="https://github.com/user-attachments/assets/6577305e-26e1-4edc-854c-eaddd7d9cffd" />
